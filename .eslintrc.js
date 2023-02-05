@@ -17,5 +17,8 @@ module.exports = {
   },
   rules: {
     'vue/multi-word-component-names': 'off',
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
 }
