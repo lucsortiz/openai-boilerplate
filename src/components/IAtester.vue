@@ -2,8 +2,7 @@
 </script>
 
 <template>
-  <div>Testing Router</div>
-  <router-link to="/">Change route</router-link>
+  <CompletionQuery />
 </template>
 
 <style scoped></style>

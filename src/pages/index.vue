@@ -1,10 +1,10 @@
-<template>
-  <div>{{ val }}</div>
-  <test-component />
-</template>
-
 <script setup lang="ts">
-const val = ref(0)
+import IAtester from '~/components/IAtester.vue';
+
 </script>
+
+<template>
+  <IAtester />
+</template>
 
 <style scoped></style>

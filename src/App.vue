@@ -1,8 +1,33 @@
+<script setup lang="ts">
+</script>
+
 <template>
-  <div>
-    <router-view />
-  </div>
+  <v-app theme="dark">
+    <v-app-bar
+      :elevation="2"
+      title="openAI boilerplate"
+      color="primary"
+      density="compact"
+    />
+
+    <v-main>
+      <v-container
+        class="spacing-playground pa-6"
+        fluid
+      >
+        <v-row>
+          <v-col
+            class="flex flex-col gap-3"
+          >
+            <router-view />
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+    <v-footer border>
+      &copy; LOV 2023
+    </v-footer>
+  </v-app>
 </template>
-<script setup lang="ts"></script>
 
 <style></style>
