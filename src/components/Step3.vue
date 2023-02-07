@@ -16,13 +16,13 @@ async function performQuery(params = {}) {
     behavior: 'smooth',
   });
 }
-
 </script>
 
 <template>
   <v-card
     :loading="loading"
     title="Step 3"
+    class="cyan-darken-4"
     variant="outlined"
     subtitle="Tell us more about your target audience"
   >
@@ -30,24 +30,27 @@ async function performQuery(params = {}) {
       width="auto"
       class="mx-auto"
     >
-      <v-form
-        fast-fail
-      >
+      <v-form fast-fail>
         <v-container>
           <v-row no-gutters>
             <v-col cols="6">
               <v-select
                 v-model="appState.gender"
                 label="Gender"
+                color="cyan-darken-1"
                 :items="['Man', 'Woman', 'Any']"
               />
             </v-col>
           </v-row>
-          <h3>Age</h3>
+          <v-row no-gutters>
+            <p class="text-cyan-darken-2 px-3">
+              Age
+            </p>
+          </v-row>
           <v-row>
             <v-radio-group
               v-model="ageChoice"
-              @change="ageChoice === 'any' ? appState.ageRange=[0,99] : 0"
+              @change="ageChoice === 'any' ? (appState.ageRange = [0, 99]) : 0"
             >
               <v-radio
                 label="Select range"
@@ -60,7 +63,8 @@ async function performQuery(params = {}) {
                 :step="1"
                 hide-details
                 class="align-center"
-                :disabled="ageChoice!=='range'"
+                color="cyan-darken-1"
+                :disabled="ageChoice !== 'range'"
               >
                 <template #prepend>
                   <v-text-field
@@ -97,7 +101,15 @@ async function performQuery(params = {}) {
             <v-select
               v-model="appState.travelParty"
               label="Travel Party"
-              :items="['Single', 'Couple', 'Family', 'Group', 'Business', 'Any']"
+              color="cyan-darken-1"
+              :items="[
+                'Single',
+                'Couple',
+                'Family',
+                'Group',
+                'Business',
+                'Any',
+              ]"
             />
             <v-text-field
               v-model="appState.targetLocation"
@@ -105,7 +117,7 @@ async function performQuery(params = {}) {
             />
           </v-col>
           <v-btn
-            color="success"
+            color="cyan-darken-2"
             class="mt-4"
             block
             @click="performQuery"
@@ -120,4 +132,7 @@ async function performQuery(params = {}) {
 </template>
 
 <style scoped>
+.cyan-darken-4 {
+  border: 2px solid rgb(0, 188, 212);
+}
 </style>
