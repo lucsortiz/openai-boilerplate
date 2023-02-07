@@ -12,6 +12,8 @@ declare module '@vue/runtime-core' {
     IAtester: typeof import('./src/components/IAtester.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Step1: typeof import('./src/components/Step1.vue')['default']
+    Step2: typeof import('./src/components/Step2.vue')['default']
     TestComponent: typeof import('./src/components/TestComponent.vue')['default']
   }
 }

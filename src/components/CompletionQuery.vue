@@ -1,15 +1,15 @@
 <script setup lang="ts">
-// import { Configuration, OpenAIApi } from "openai";
-const loading = ref(false);
-// const configuration = new Configuration({
-//   organization: "org-EHAglPvzrVAyVpDnb1P9DORS",
-//   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-// });
-// const openai = new OpenAIApi(configuration);
-// const response = await openai.listEngines();
+import { useStore } from '../composables/Usestore';
+import { query } from '../utils/query';
 
+const loading = ref(false);
 const responseText = ref('');
 const prompt = ref('');
+
+const ex4 = ref('');
+
+const store = useStore();
+
 const queryTextRules = [
   (value: string) => {
     if (value?.length > 10) return true;
@@ -17,38 +17,19 @@ const queryTextRules = [
   },
 ];
 
-const DEFAULT_PARAMS = {
-  "model": "text-davinci-003",
-  "temperature": 0.7,
-  "max_tokens": 2048,
-  "top_p": 1,
-  "frequency_penalty": 0,
-  "presence_penalty": 0,
-};
-
-async function query(params = {}) {
+async function performQuery(params = {}) {
   responseText.value = '';
-  const params_ = { ...DEFAULT_PARAMS, ...params };
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + String(import.meta.env.VITE_OPENAI_API_KEY)
-    },
-    body: JSON.stringify(params_)
-  };
   loading.value = true;
-  const response = await fetch('https://api.openai.com/v1/completions', requestOptions);
+  const response = await query(params);
   loading.value = false;
-  const data = await response.json();
-  responseText.value = data.choices[0].text;
+  responseText.value = response;
 }
 </script>
 
 <template>
   <v-card
     :loading="loading"
-    title="Completion Tester"
+    title="MarketDirect"
     variant="outlined"
   >
     <v-sheet
@@ -57,7 +38,7 @@ async function query(params = {}) {
     >
       <v-form
         fast-fail
-        @submit.prevent="query({prompt})"
+        @submit.prevent="performQuery({prompt})"
       >
         <v-textarea
           v-model="prompt"
@@ -65,6 +46,10 @@ async function query(params = {}) {
           variant="outlined"
           :rules="queryTextRules"
         />
+
+        <v-checkbox label="Checkbox" />
+        <v-switch label="Switch" />
+
 
         <v-btn
           type="submit"
@@ -77,8 +62,9 @@ async function query(params = {}) {
         </v-btn>
       </v-form>
     </v-sheet>
+    <div> test {{ store.appState }}</div>
     <transition>
-      <template v-if="prompt">
+      <template v-if="responseText">
         <div
           class="p-4 border"
         >
@@ -88,6 +74,35 @@ async function query(params = {}) {
         </div>
       </template>
     </transition>
+    <v-container>
+      <v-row no-gutters>
+        <v-col
+          cols="4"
+        >
+          <v-checkbox
+            v-model="ex4"
+            label="red"
+            color="red"
+            value="red"
+            hide-details
+          />
+        </v-col>
+        <v-col
+          cols="4"
+        >
+          <v-sheet class="ma-2 pa-2">
+            Two
+          </v-sheet>
+        </v-col>
+        <v-col
+          cols="4"
+        >
+          <v-sheet class="ma-2 pa-2">
+            Three
+          </v-sheet>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-card>
 </template>
 
