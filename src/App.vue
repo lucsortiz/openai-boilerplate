@@ -25,7 +25,7 @@
       </v-container>
     </v-main>
     <v-footer border>
-      &copy; LOV 2023
+      &copy; THN 2023
     </v-footer>
   </v-app>
 </template>

@@ -1,7 +1,6 @@
 import { reactive } from 'vue';
 
-export function useStore() {
-  const appState = reactive({
+  export const appState = reactive({
     step: 1,
     prompt: '',
     propertyName: '',
@@ -14,8 +13,10 @@ export function useStore() {
     email: '',
     newsletter: '',
     slogan: '',
+    tone: '',
+    objective: '',
+    gender: '',
+    travelParty: '',
+    ageRange: [0, 99],
+    targetLocation: '',
   });
-  return {
-    appState,
-  };
-}

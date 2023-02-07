@@ -1,8 +1,14 @@
 <script setup lang="ts">
-import { useStore } from '~/composables/UseStore';
+import { appState } from '../composables/UseStore';
 const loading = ref(false);
 const valid = ref(true);
-const store =useStore();
+const goToNext = () => {
+  appState.step = 3;
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
 </script>
 
 <template>
@@ -22,81 +28,95 @@ const store =useStore();
         @submit.prevent="console.log('submit')"
       >
             <v-container>
-              <v-row no-gutters>
-                  <h3>Social Media</h3>
+                <v-row><h3>Social Media</h3></v-row>
                 <v-row>
-                    <v-col cols="6">
+                    <v-col cols="4">
                       <v-checkbox
-                          v-model="store.appState.socialMedia"
+                          v-model="appState.socialMedia"
                           label="Facebook"
                           value="Facebook"
                       ></v-checkbox>
                       <v-checkbox
-                          v-model="store.appState.socialMedia"
+                          v-model="appState.socialMedia"
                           label="Instagram"
                           value="Instagram"
                       ></v-checkbox>
-                      <v-checkbox
-                          v-model="store.appState.socialMedia"
-                          label="Twitter"
-                          value="Twitter"
-                      ></v-checkbox>
                     </v-col>
-                    <v-col cols="6">
+                    <v-col cols="4">
                       <v-checkbox
-                          v-model="store.appState.socialMedia"
+                          v-model="appState.socialMedia"
                           label="TikTok"
                           value="TikTok"
                       ></v-checkbox>
                       <v-checkbox
-                          v-model="store.appState.socialMedia"
+                          v-model="appState.socialMedia"
                           label="Linkedin"
                           value="Linkedin"
                       ></v-checkbox>
                     </v-col>
+                    <v-col cols="4">
+                      <v-checkbox
+                          v-model="appState.socialMedia"
+                          label="Twitter"
+                          value="TikTok"
+                      ></v-checkbox>
+                    </v-col>
                 </v-row>
-              </v-row>
-              <v-checkbox
-                  v-model="store.appState.marketingPlan"
-                  label="Marketing Plan"
-                  value="true"
-              ></v-checkbox>
-              <v-checkbox
-                  v-model="store.appState.email"
-                  label="Email"
-                  value="true"
-              ></v-checkbox>
-              <v-checkbox
-                  v-model="store.appState.newsletter"
-                  label="Newsletter"
-                  value="true"
-              ></v-checkbox>
-              <v-checkbox
-                  v-model="store.appState.slogan"
-                  label="Slogan"
-                  value="true"
-              ></v-checkbox>
-              <v-select>
-
-              </v-select>
+                <v-row><h3>Marketing</h3></v-row>
+                <v-row>
+                  <v-col cols="6">
+                    <v-checkbox
+                        v-model="appState.marketingPlan"
+                        label="Marketing Plan"
+                        value="true"
+                    ></v-checkbox>
+                    <v-checkbox
+                        v-model="appState.email"
+                        label="Email"
+                        value="true"
+                    ></v-checkbox>
+                  </v-col>
+                  <v-col cols="6">
+                    <v-checkbox
+                      v-model="appState.newsletter"
+                      label="Newsletter"
+                      value="true"
+                  ></v-checkbox>
+                    <v-checkbox
+                        v-model="appState.slogan"
+                        label="Slogan"
+                        value="true"
+                    ></v-checkbox>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-select
+                        v-model="appState.tone"
+                        label="Tone"
+                        :items="['Formal', 'Informal']"
+                    ></v-select>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-textarea
+                        v-model="appState.objective"
+                        label="What is the main objective of your OUTPUT?"
+                        variant="outlined"
+                        :rules="queryTextRules"
+                    />
+                  </v-col>
+                </v-row>
+              <v-btn
+                  color="success"
+                  class="mt-4"
+                  block
+                  @click="goToNext"
+              >
+                Next
+              </v-btn>
             </v-container>
       </v-form>
     </v-sheet>
   </v-card>
-  <div>{{store}}</div>
 </template>
 
 <style scoped>
-a {
-  color: #42b983;
-}
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
 </style>

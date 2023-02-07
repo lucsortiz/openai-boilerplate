@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     Step1: typeof import('./src/components/Step1.vue')['default']
     Step2: typeof import('./src/components/Step2.vue')['default']
+    Step3: typeof import('./src/components/Step3.vue')['default']
     TestComponent: typeof import('./src/components/TestComponent.vue')['default']
   }
 }
