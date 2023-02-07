@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="85b1b738-e5ff-4b2e-8902-d3f234b68fa3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Step1.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Step1.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/query.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Step2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Step2.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

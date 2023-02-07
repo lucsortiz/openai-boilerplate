@@ -15,6 +15,7 @@ const goToNext = () => {
   <v-card
     :loading="loading"
     title="Step 2"
+    class="cyan-darken-4"
     variant="outlined"
     subtitle="What OUTPUTS do you want us to offer to you?"
   >
@@ -28,7 +29,7 @@ const goToNext = () => {
         @submit.prevent="console.log('submit')"
       >
         <v-container>
-          <v-row><h3>Social Media</h3></v-row>
+          <v-row><p class="text-cyan-darken-2 px-3">Social Media</p></v-row>
           <v-row>
             <v-col cols="4">
               <v-checkbox
@@ -62,18 +63,20 @@ const goToNext = () => {
               />
             </v-col>
           </v-row>
-          <v-row><h3>Marketing</h3></v-row>
+          <v-row><p class="text-cyan-darken-2 px-3">Marketing</p></v-row>
           <v-row>
             <v-col cols="6">
               <v-checkbox
                 v-model="appState.marketingPlan"
                 label="Marketing Plan"
                 value="true"
+                color="cyan-darken-2"
               />
               <v-checkbox
                 v-model="appState.email"
                 label="Email"
                 value="true"
+                color="cyan-darken-2"
               />
             </v-col>
             <v-col cols="6">
@@ -81,11 +84,13 @@ const goToNext = () => {
                 v-model="appState.newsletter"
                 label="Newsletter"
                 value="true"
+                color="cyan-darken-2"
               />
               <v-checkbox
                 v-model="appState.slogan"
                 label="Slogan"
                 value="true"
+                color="cyan-darken-2"
               />
             </v-col>
             <v-col cols="12">
@@ -93,6 +98,7 @@ const goToNext = () => {
                 v-model="appState.tone"
                 label="Tone"
                 :items="['Formal', 'Informal']"
+                color="cyan-darken-2"
               />
             </v-col>
             <v-col cols="12">
@@ -100,11 +106,12 @@ const goToNext = () => {
                 v-model="appState.objective"
                 label="What is the main objective of your OUTPUT?"
                 variant="outlined"
+                color="cyan-darken-2"
               />
             </v-col>
           </v-row>
           <v-btn
-            color="success"
+            color="cyan-darken-2"
             class="mt-4"
             block
             @click="goToNext"
@@ -118,4 +125,7 @@ const goToNext = () => {
 </template>
 
 <style scoped>
+.cyan-darken-4 {
+  border: 2px solid rgb(0, 188, 212);
+}
 </style>
