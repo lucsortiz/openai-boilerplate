@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85b1b738-e5ff-4b2e-8902-d3f234b68fa3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Step3.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IAtester.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IAtester.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Step1.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Step1.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Step2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Step2.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/composables/UseStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/composables/UseStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/query.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
