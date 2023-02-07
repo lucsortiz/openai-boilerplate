@@ -59,7 +59,7 @@ const goToNext = () => {
               <v-checkbox
                 v-model="appState.socialMedia"
                 label="Twitter"
-                value="TikTok"
+                value="Twitter"
               />
             </v-col>
           </v-row>
