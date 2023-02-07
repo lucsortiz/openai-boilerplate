@@ -12,6 +12,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@mdi/font": "^7.1.96",
     "@types/node": "^18.11.19",
     "@types/webpack-env": "^1.18.0",
     "@vueuse/core": "^9.5.0",
