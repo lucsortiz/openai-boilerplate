@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useStore } from '../composables/Usestore';
+
 import { query } from '../utils/query';
 
 const loading = ref(false);

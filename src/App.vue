@@ -5,8 +5,9 @@
   <v-app>
     <v-app-bar
       :elevation="2"
-      title="openAI boilerplate"
-      color="primary"
+      title="MarketDirect"
+      :style="'color:white'"
+      color="#00BCD4"
       density="compact"
     />
 

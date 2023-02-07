@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CompletionQuery: typeof import('./src/components/CompletionQuery.vue')['default']
+    copy: typeof import('./src/components/Step3 copy.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IAtester: typeof import('./src/components/IAtester.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
@@ -15,6 +16,7 @@ declare module '@vue/runtime-core' {
     Step1: typeof import('./src/components/Step1.vue')['default']
     Step2: typeof import('./src/components/Step2.vue')['default']
     Step3: typeof import('./src/components/Step3.vue')['default']
+    Step4: typeof import('./src/components/Step4.vue')['default']
     TestComponent: typeof import('./src/components/TestComponent.vue')['default']
   }
 }
