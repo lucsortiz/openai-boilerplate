@@ -1,19 +1,4 @@
-import { useStore } from "../composables/useStore";
-import { ref } from 'vue';
-
-const {
-  propertyName,
-  location,
-  perks,
-  category,
-  propertyType,
-  gender,
-  ageRange,
-  objective,
-  tone,
-  output,
-  travelParty,
-} = useStore().appState;
+import { appState } from "../composables/UseStore";
 
 const DEFAULT_PARAMS = {
   "model": "text-davinci-003",
@@ -24,16 +9,20 @@ const DEFAULT_PARAMS = {
   "presence_penalty": 0,
 };
 
-const prompt = ref(`I want you to act as a ${propertyType} hotel marketer.\
-You will create a campaign to promote the product\
-You will create ${output} whose main aim is to promote ${objective} in a ${tone} tone\
-You will not mention any specifications not specified\
-My first request: "Product: ${propertyName}, a ${category} hotel in ${location}.\
-The Hotel offers ${perks}.\
-Target audience: ${gender} aged ${ageRange} travelling in ${travelParty}`);
 
 export async function query() {
-  const params_ = { ...DEFAULT_PARAMS, ...{ prompt: prompt.value } };
+  console.log(appState.propertyName);
+  const prompt = `I want you to act as a ${appState.propertyType} hotel marketer. \
+    You will create a campaign to promote the product. \
+    You will create 3 of each: ${appState.output}, whose main aim is to promote ${appState.objective} in a ${appState.tone} tone. \
+    You will not mention any aspects of the product not specified. \
+    My first request: "Product: ${appState.propertyName}, a ${appState.category} hotel in ${appState.location}. \
+    The Hotel offers ${appState.perks}. \
+    Target audience: ${appState.gender} aged ${appState.ageRange} travelling in ${appState.travelParty}.`;
+
+  const params_ = { ...DEFAULT_PARAMS, ...{ prompt } };
+  appState.prompt = prompt;
+
   const requestOptions = {
     method: 'POST',
     headers: {

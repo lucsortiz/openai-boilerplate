@@ -7,6 +7,7 @@ import { appState } from '../composables/UseStore';
   <Step2 v-if="appState.step === 2" />
   <Step3 v-if="appState.step === 3" />
   <Step4 v-if="appState.step === 4" />
+  {{ appState }}
 </template>
 
 <style scoped>
