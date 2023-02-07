@@ -11,7 +11,7 @@ import { appState } from '../composables/UseStore';
       width="auto"
       class="p-8"
     >
-      {{ appState.output }}
+      <div v-html="appState.output" />
     </v-sheet>
   </v-card>
 </template>

@@ -11,16 +11,21 @@ const DEFAULT_PARAMS = {
 
 
 export async function query() {
-  console.log(appState.propertyName);
-  const prompt = `I want you to act as a ${appState.propertyType} hotel marketer. \
-    You will create a campaign to promote the product. \
-    You will create 3 of each: ${appState.output}, whose main aim is to promote ${appState.objective} in a ${appState.tone} tone. \
-    You will not mention any aspects of the product not specified. \
-    My first request: "Product: ${appState.propertyName}, a ${appState.category} hotel in ${appState.location}. \
-    The Hotel offers ${appState.perks}. \
-    Target audience: ${appState.gender} aged ${appState.ageRange} travelling in ${appState.travelParty}.`;
+  const marketingPlan = appState.marketingPlan ? 'marketing plans ideas, ' : '';
+  const email = appState.email ? 'campaign emails, ' : '';
+  const newsletter = appState.newsletter ? 'newsletter content proposals, ' : '';
+  const slogan = appState.slogan ? 'campaign slogans, ' : '';
+  const socialmedia = appState.socialMedia ? appState.socialMedia + ' publications, ' : '';
+  const prompt = `I want you to act as a ${appState.propertyType} hotel marketer.
+    You will create a campaign to promote the product.
+    You will create 3 of each: ${socialmedia} ${marketingPlan} ${email} ${newsletter} ${slogan}, whose main aim is to promote ${appState.objective} in a ${appState.tone || 'formal'} tone.
+    You will not mention any aspects of the product not specified.
+    My first request: "Product: ${appState.propertyName}, a ${appState.category} hotel in ${appState.location}.
+    The Hotel offers ${appState.perks}.
+    Target audience: ${appState.gender} aged ${appState.ageRange} travelling in ${appState.travelParty}.
+    Answer me with valid HTML with line breaks between each independent suggestion.`;
 
-  const params_ = { ...DEFAULT_PARAMS, ...{ prompt } };
+  const params_ = { ...DEFAULT_PARAMS, ...{ prompt: prompt.replace('\n', '<br/>') } };
   appState.prompt = prompt;
 
   const requestOptions = {
